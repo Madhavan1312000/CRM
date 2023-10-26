@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Target Table Column with JavaScript</title>
+</head>
+<body>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Col 1</td>
+                <td>Row 1, Col 2</td>
+                <td>Row 1, Col 3</td>
+            </tr>
+            <tr>
+                <td>Row 2, Col 1</td>
+                <td>Row 2, Col 2</td>
+                <td>Row 2, Col 3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Function to highlight a specific column
+        function highlightColumn(colIndex) {
+            var table = document.getElementById('myTable');
+            var rows = table.rows;
+
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var cell = row.cells[colIndex];
+                cell.style.backgroundColor = 'yellow'; // Change the background color to highlight the column
+            }
+        }
+
+        // Example: Highlight the second column (index 1)
+        highlightColumn(0);
+    </script>
+</body>
+</html>

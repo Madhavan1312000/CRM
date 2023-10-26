@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Search</title>
+</head>
+<body>
+    <h1>Search Example</h1>
+    <label for="search-category">Select a Category:</label>
+    <select id="search-category">
+        <option value="category1">Category 1</option>
+        <option value="category2">Category 2</option>
+        <option value="category3">Category 3</option>
+    </select>
+    <input type="text" id="search-input" placeholder="Enter your search query">
+    <button onclick="performSearch()">Search</button>
+    <div id="search-results"></div>
+
+    <script>
+        function performSearch() {
+            var category = document.getElementById("search-category").value;
+            var query = document.getElementById("search-input").value;
+
+            // Perform your search logic here based on the category and query
+            // You can use JavaScript to filter and display the results in the "search-results" div
+            // For this example, we'll just display the selected category and query.
+
+            var results = `Category: ${category}, Query: ${query}`;
+            document.getElementById("search-results").textContent = results;
+        }
+    </script>
+</body>
+</html>

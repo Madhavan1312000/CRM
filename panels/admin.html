@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css1/style.css">
+    <link rel="stylesheet" href="./css1/bootstrap.min.css">
+
+    <style>
+        .multi-color-text{
+            /* background: linear-gradient(to right,
+                    violet,
+                    indigo,
+                    blue,
+                    green,
+                    yellow,
+                    rgb(255, 196, 0),
+                    red);
+            -webkit-background-clip: text;
+            color: transparent; */
+        }
+
+.multi-color-text
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    red 0%,
+    black 50%,
+    rgb(180, 0, 180) 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid position-relative p-0">
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="#" class="navbar-brand mx-4 mb-3">
+                    <h4 class="text-primary">Dashboard</h4>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="./img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <button class="navbar-brand" name="user_id_display" id="user_id_display" data-userid="{{user_id}}" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" value="{{user_id}}" style="background-color: transparent; border: none;">
+                            {{user_id}} 
+                          </button>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <a class="nav-item nav-link" id="mark-as-register" role="button"><i class="fa-solid fa-rocket me-2"></i>Activities</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown" role="button" id="models"><i class="fa-solid fa-rocket me-2"></i>Models</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a class="clickable dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="">Add Course</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="dropdown ms-2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Leads
+                      </button>
+                      <div class="dropdown-content">
+                          <a class="dropdown-item" href="/loadnewleadsmanagertab/{{user_id}}" id="MNewLeadsTab" role="button">New Leads</a>
+                          <a class="dropdown-item" href="/loadfollowupmanagertab/{{user_id}}" id="MFollowupTab" role="button">Follow-Up Leads</a>
+                          <a class="dropdown-item" href="#" id="MWalkinTab" role="button">Walkin Leads</a>
+                          <a class="dropdown-item" href="#" id="MProspectsTab" role="button">Prospects</a>
+                          <a class="dropdown-item" href="#" id="MClosedTab" role="button">Closed Leads</a>
+                      </div>
+                    </div>
+                    <div>
+                      <!-- <input type="text" id="searchInput" placeholder="Search..."> -->
+                      <input class="form-control bg-dark border-0" type="search" placeholder="Search" id="searchInput">                    </div>
+                  <div class="navbar-nav align-items-center ms-auto">
+                      
+                      <div class="navbar-nav w-100">
+                          <div class="nav-item dropdown">
+                              <a class="nav-link dropbtn"><i class="fa-solid fa-user me-2"></i></a>
+                              <div class="dropdown-content">
+                                  <a href="#">User Id</a>
+                                  <a href="#">Log Out</a>
+                              </div>
+                              
+                          </div>
+                          <div class="nav-item dropdown">
+                            <a class="nav-link dropbtn"><i class="fa-solid fa-circle-plus"></i></a>
+                            <div class="dropdown-content">
+                                <a href="#">Client</a>
+                                <a href="#">Customer</a>
+                                <a href="#">Saved Activities</a>
+                            </div>
+                        </a>
+                    </div>
+                          <div class="navbar-nav w-100">
+                          <a href="#" class="nav-link"><i class="fa-solid fa-database me-2"></i></a>
+                          </div>
+                      </div>
+                </div>
+                
+                </nav>
+            <!-- Navbar End -->
+
+            <div class="container-fluid pt-2 px-4">
+							<div class="text-center rounded">
+								<h4 class="multi-color-text">Welcome Admin</h4>
+								<h5 id="greeting-message"></h5>
+								<h6 id="date">Date</h6>
+							</div>
+                <div class=" row text-center rounded p-4 bg-secondary justify-content-center">
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <h6 class="mb-0">Chart</h6>
+                    </div>
+                    <div class="col-sm-12 col-xl-8  bg-info">
+                        Chart
+                    </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./css1/js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const currentDate = new Date();
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const dayOfWeekIndex = currentDate.getDay();
+    const formattedDate = `${currentDate.toLocaleDateString()} , ${daysOfWeek[dayOfWeekIndex]}`;
+
+    document.getElementById("date").textContent = formattedDate;
+		 });
+
+		 const currentTime = new Date();
+        const currentHour = currentTime.getHours();
+        const greetingMessage = document.getElementById("greeting-message");
+        if (currentHour >= 5 && currentHour < 12) {
+            greetingMessage.textContent = "Good morning";
+        } else if (currentHour >= 12 && currentHour < 18) {
+            greetingMessage.textContent = "Good afternoon";
+        } else {
+            greetingMessage.textContent = "Good evening";
+        }
+</script>
+</body>
+
+</html>

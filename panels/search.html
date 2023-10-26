@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Search by Column">
+<table id="data-table">
+    <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mani</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+        </tr>
+        <!-- Add more rows here -->
+    </tbody>
+</table>
+
+<script>
+    // Get the input element and table
+const searchInput = document.getElementById("searchInput");
+const dataTable = document.getElementById("data-table");
+const tableRows = dataTable.getElementsByTagName("tr");
+
+// Add an event listener to the search input
+searchInput.addEventListener("input", function () {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    for (let i = 1; i < tableRows.length; i++) { // Start from 1 to skip the table header row
+        const row = tableRows[i];
+        const columns = row.getElementsByTagName("td");
+
+        let rowMatch = false;
+
+        for (let j = 0; j < columns.length; j++) {
+            const cellValue = columns[j].textContent.toLowerCase();
+            
+            // Check if the cell's value contains the search term
+            if (cellValue.includes(searchTerm)) {
+                rowMatch = true;
+                break;
+            }
+        }
+
+        // Show/hide the row based on the search result
+        if (rowMatch) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    }
+});
+
+</script>
+</body>
+</html>

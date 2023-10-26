@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css1/style.css">
+    <link rel="stylesheet" href="./css1/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid position-relative p-0">
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="#" class="navbar-brand mx-4 mb-3">
+                    <h4 class="text-primary">Manager Panel</h4>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="./img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <button class="navbar-brand" name="user_id_display" id="user_id_display" data-userid="{{user_id}}" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" value="{{user_id}}" style="background-color: transparent; border: none;">
+                            {{user_id}} 
+                          </button>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <div class="nav-item dropdown">
+                        <a class="nav-link" data-bs-toggle="dropdown" id='assignto' role="button" name='assignto'disabled><i class="fa-solid fa-hand-point-right me-2" ></i>Assigned To</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            {% for employee_name in assignto_feed_list %}
+                            <a id='{{employee_name}}' class="clickable" value='{{employee_name}}' onclick="handleEmployeeSelect(this)">{{employee_name}}</a>
+                      {% endfor %}
+                        </div>
+                    </div>
+                    <a class="nav-item nav-link" id="mark-as-register" role="button" disabled><i class="fa-solid fa-hand-point-right me-2"></i>Mark As Register</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown" role="button" id="move-to" disabled><i class="fa-solid fa-hand-point-right me-2"></i>Move To</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a class="clickable dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#FollowupModal">Follow Up</a>
+                            <a class="clickable dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#FollowupModal">Prospects</a>
+                            <a class="clickable dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#ClosedModal">Closed</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link " data-bs-toggle="dropdown" role="button"><i class="fa-solid fa-hand-point-right me-2"></i>Filter By</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="#" class="dropdown-item clickable">Course</a>
+                            <a href="#" class="dropdown-item clickable">Assigned Salesman</a>
+                            <a href="#" class="dropdown-item clickable">Location</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="dropdown ms-2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Leads
+                      </button>
+                      <div class="dropdown-content">
+                          <a class="dropdown-item" href="/loadnewleadsmanagertab/{{user_id}}" id="MNewLeadsTab" role="button">New Leads</a>
+                          <a class="dropdown-item" href="/loadfollowupmanagertab/{{user_id}}" id="MFollowupTab" role="button">Follow-Up Leads</a>
+                          <a class="dropdown-item" href="#" id="MWalkinTab" role="button">Walkin Leads</a>
+                          <a class="dropdown-item" href="#" id="MProspectsTab" role="button">Prospects</a>
+                          <a class="dropdown-item" href="#" id="MClosedTab" role="button">Closed Leads</a>
+                      </div>
+                    </div>
+                    <div>
+                      <!-- <input type="text" id="searchInput" placeholder="Search..."> -->
+                      <input class="form-control bg-dark border-0" type="search" placeholder="Search" id="searchInput">                    </div>
+                  <div class="navbar-nav align-items-center ms-auto">
+                      
+                      <div class="navbar-nav w-100">
+                          <div class="nav-item dropdown">
+                              <a class="nav-link dropbtn"><i class="fa-solid fa-user me-2"></i></a>
+                              <div class="dropdown-content">
+                                  <a href="#">User Id</a>
+                                  <a href="#">Log Out</a>
+                              </div>
+                              
+                          </div>
+                          <div class="nav-item dropdown">
+                            <a class="nav-link dropbtn"><i class="fa-solid fa-circle-plus"></i></a>
+                            <div class="dropdown-content">
+                                <a href="#">Client</a>
+                                <a href="#">Customer</a>
+                                <a href="#">Saved Activities</a>
+                            </div>
+                        </a>
+                    </div>
+                          <div class="navbar-nav w-100">
+                          <a href="#" class="nav-link"><i class="fa-solid fa-database me-2"></i></a>
+                          </div>
+                          <div class="navbar-nav w-100">
+                              <a href="#" class="nav-link"><i class="fa-solid fa-calendar-days me-2"></i></a>
+                          </div>
+                      </div>
+                </div>
+                
+                </nav>
+            <!-- Navbar End -->
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">New Leads</h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col"></th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">CONTACT NUMBER</th>
+                                    <th scope="col">CITY</th>
+                                    <th scope="col">EMAIL</th>
+                                    <th scope="col">COURSE ENQUIRED</th>
+                                    <th scope="col">CREATED BY</th>
+                                    <th scope="col">ASSIGNED TO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" name="list-of-ids"></td>
+                                    <td>01 Jan 2045</td>
+                                    <td>INV-0123</td>
+                                    <td>Jhon Doe</td>
+                                    <td>$123</td>
+                                    <td>Paid</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td>Paid</td>
+                                    <td>Paid</td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" name="list-of-ids"></td>
+                                    <td>01 Jan 2045</td>
+                                    <td>INV-0123</td>
+                                    <td>Jhon Doe</td>
+                                    <td>$123</td>
+                                    <td>Paid</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td>Paid</td>
+                                    <td>Paid</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./css1/js/main.js"></script>
+
+<script>
+const checkboxes = document.querySelectorAll('.form-check-input');
+const myButton = document.getElementById("assignto");
+const myButton1 = document.getElementById("mark-as-register");
+const myButton2 = document.getElementById("move-to");
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", updateButtonState);
+});
+
+function updateButtonState() {
+    const checkedCheckboxes = document.querySelectorAll(".form-check-input:checked");
+
+    if (checkedCheckboxes.length > 0) {
+        myButton.removeAttribute("disabled");
+    }  
+    else{
+        myButton.setAttribute("disabled", "true");
+    }
+
+if(checkedCheckboxes.length==1){
+        myButton1.removeAttribute("disabled");
+        myButton2.removeAttribute("disabled");
+    }
+    else{
+        myButton1.setAttribute("disabled", "true");
+        myButton2.setAttribute("disabled", "true");
+    }
+}
+</script>
+</body>
+
+</html>

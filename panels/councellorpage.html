@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css1/style.css">
+    <link rel="stylesheet" href="./css1/bootstrap.min.css">
+
+<style>
+
+	</style>
+</style>
+    
+</head>
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"></i>Councellor</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Name</h6>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                  <a class="nav-item nav-link" id="show-column" role="button"><i class="fa-solid fa-hand-point-right me-2"></i>Show Column</a>
+              </div>
+            </nav>
+        </div>
+
+        <div class="content">
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="dropdown ms-2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Leads
+                      </button>
+                      <div class="dropdown-content">
+                          <a class="dropdown-item" href="" id="TNewLeadsTab" role="button">New Leads</a>
+                          <a class="dropdown-item" href="" id="TFollowupTab" role="button">Follow-Up Leads</a>
+                          <a class="dropdown-item" href="#" id="TWalkinTab" role="button">Walkin Leads</a>
+                          <a class="dropdown-item" href="#" id="TWalkinTab" role="button">Closed</a>
+                      </div>
+                    </div>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="navbar-nav w-100">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropbtn"><i class="fa-solid fa-user me-2"></i></a>
+                            <div class="dropdown-content">
+                                <a href="#">User Id</a>
+                                <a href="#">Log Out</a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                          <a class="nav-link dropbtn"><i class="fa-solid fa-circle-plus"></i></a>
+                          <div class="dropdown-content">
+                              <a href="#">Client</a>
+                              <a href="#">Customer</a>
+                              <a href="#">Saved Activities</a>
+                          </div>
+                      </a>
+                  </div>
+                        <div class="navbar-nav w-100">
+                        <a href="#" class="nav-link"><i class="fa-solid fa-database me-2"></i></a>
+                        </div>
+                    </div>
+              </div>
+            </nav>
+            <!-- Navbar End -->
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">New Leads</h6>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="tablemanager table text-start align-middle table-bordered table-hover mb-0">
+                        <thead>
+                        <tr class="text-white">
+                          <th scope="col"></th>
+                          <th scope="col">ID</th>
+                          <th scope="col">NAME</th>
+                          <th scope="col">CONTACT NUMBER</th>
+                          <th scope="col">CITY</th>
+                          <th scope="col">EMAIL</th>
+                          <th scope="col">COURSE ENQUIRED</th>
+                          <th scope="col">CREATED BY</th>
+                          <th scope="col">ASSIGNED TO</th>
+                      </tr>
+                        </thead>
+                      <tbody>
+                        <tr>
+                          <td><input class="form-check-input" type="checkbox" name="list-of-ids"></td>
+                          <td>01 Jan 2045</td>
+                          <td>INV-0123</td>
+                          <td>Jhon Doe</td>
+                          <td>$123</td>
+                          <td>Paid</td>
+                          <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                          <td>Paid</td>
+                          <td>Paid</td>
+                      </tr>
+                      <tr>
+                        <td><input class="form-check-input" type="checkbox" name="list-of-ids"></td>
+                        <td>01 Feb 2045</td>
+                        <td>INV-0123</td>
+                        <td>Jhon Doe</td>
+                        <td>$123</td>
+                        <td>Paid</td>
+                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                        <td>Paid</td>
+                        <td>Paid</td>
+                    </tr>
+                    <tr>
+                      <td><input class="form-check-input" type="checkbox" name="list-of-ids"></td>
+                      <td>01 Jan 2045</td>
+                      <td>INV-0123</td>
+                      <td>Jhon Doe</td>
+                      <td>$123</td>
+                      <td>Paid</td>
+                      <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                      <td>Paid</td>
+                      <td>Paid</td>
+                  </tr>
+                        <!-- <tr>
+                          <td>2</td>
+                          <td>John</td>
+                          <td>Doe</td>
+                          <td>10-05-1987</td>
+                          <td>80</td>
+                          <td><a href="">Edit</a></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Adam</td>
+                          <td>Johnson</td>
+                          <td>10-05-1987</td>
+                          <td>50</td>
+                          <td><a href="">Edit</a></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Jill</td>
+                          <td>Smith</td>
+                          <td>11-11-1972</td>
+                          <td>50</td>
+                          <td><a href="">Edit</a></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Jill</td>
+                          <td>Smith</td>
+                          <td>11-11-1972</td>
+                          <td>50</td>
+                          <td><a href="">Edit</a></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Jill</td>
+                          <td>Smith</td>
+                          <td>11-11-1972</td>
+                          <td>50</td>
+                          <td><a href="">Edit</a></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Jill</td>
+                          <td>Smith</td>
+                          <td>11-11-1972</td>
+                          <td>50</td>
+                          <td><a href="">Edit</a></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Jill</td>
+                          <td>Smith</td>
+                          <td>11-11-1972</td>
+                          <td>50</td>
+                          <td><a href="">Edit</a></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Jill</td>
+                          <td>Smith</td>
+                          <td>11-11-1972</td>
+                          <td>50</td>
+                          <td><a href="">Edit</a></td>
+                        </tr> -->
+                      </tbody>
+                    </table>
+                  
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="./css1/js/main.js"></script>
+	<script type="text/javascript" src="./tableManager1.js"></script>
+	<script type="text/javascript">
+		$('.tablemanager').tablemanager({
+			firstSort: [[3,0],[2,0],[1,'asc']],
+			disable: ["last"],
+			appendFilterby: true,
+			dateFormat: [[4,"mm-dd-yyyy"]],
+			debug: true,
+			vocabulary: {
+    voc_filter_by: 'Filter By',
+    voc_type_here_filter: 'Filter...',
+  },
+		});
+	</script>
+</body>
+</html>

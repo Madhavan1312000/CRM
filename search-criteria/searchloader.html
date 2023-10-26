@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<style>
+    #maindiv{
+        height: 30px;
+        max-width: 1000px;
+        min-width: 600px;
+        display: inline-block;
+    }
+    #clickableDiv{
+        height: 30px;
+        max-width: 1000px;
+        min-width: 600px;
+        background-color: #000;
+      border: 1px solid #000;
+        border-radius: 5px;
+        display: inline-block;
+    }
+    #search-btn{
+        cursor: pointer;
+        padding: 2px;
+        color: white;
+        border-radius: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    #hiddenDiv{
+        height: 330px;
+        width: 600px;
+        background-color: #191C24;
+        border: none;
+        display: none;
+    }
+    #hiddenDiv>section{
+        height: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #191C24;
+        border: none;
+    }
+    #hiddenDiv>section>div{
+        height: 100%;
+        width: 33%;
+        background-color: #191C24;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid gray;
+        color: white;
+        border-radius: 0 0 5px 5px;
+    }
+    button{
+        margin: 5px;
+        background: none;
+        border: none;
+        font-size: 15px;
+        color: #6C7293;
+        font-weight: bolder;
+    }
+    button:hover {
+    cursor: pointer;
+    color: #EB1616;
+}
+    h3{
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 18px;
+        border-bottom: 1px solid #6C7293;
+    }
+
+    .dropdown {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #191C24;
+            min-width: 160px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-left: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+</style>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="clickableDiv">
+            <button href="" onclick="send()" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button href="" id="clearButton" style="
+            
+            padding: 2px;
+            color: white;
+            border-radius: 5px;
+            padding-left: 5px;
+            padding-right: 5px;"><i class="fa-solid fa-x"></i></button>
+        </div>
+        <div id="hiddenDiv">
+            <button id="close-btn">Close</button>
+            <section>
+                <div id="employee-div">
+                    <h3>Employee</h3>
+                    <button class="btn" data-searchfield="Employee Id">Employee Id</button><br>
+                    <button  class="btn" data-searchfield="Name">Name</button><br>
+                </div>
+                <div id="leads-div">
+                    <h3>Leads</h3>
+                    <button  class="btn" data-searchfield="NewLeads">New Leads </button><br>
+                    <button  class="btn" data-searchfield="FollowUp">Follow Up Leads</button><br>
+                    <button  class="btn" data-searchfield="Walkin Leads">Walkin Leads</button><br>
+                    <div class="dropdown">
+                        <button class="dropbtn" data-searchfield="Prospects">Prospects</button>
+                        <div class="dropdown-content">
+                             <button class="btn" data-searchfield="Expected Register Date">Expected Register Date</button>
+                        </div>
+                    </div><br>
+                    <button  class="btn" data-searchfield="Closed">Closed</button>
+                </div>
+                <div id="time-div">
+                    <h3>Time</h3>
+                    <button  class="btn" data-searchfield="This_Month">This Month</button><br>
+                    <button  class="btn" data-searchfield="Today">Today</button><br>
+                    <div class="dropdown">
+                        <button class="dropbtn" data-searchfield="Custom Date">Custom Date</button>
+                        <div class="dropdown-content">
+                            <input type="date" name="" id="from-date">
+                             <button id="from-date-btn" onclick="addFromDate()">From</button><br>
+                             <input type="date" id="to-date">
+                             <button id="to-date-btn" onclick="addToDate()">To</button>
+                            </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </div>
+    <script src="./searchload.js"></script>
+
+</body>
+</html>

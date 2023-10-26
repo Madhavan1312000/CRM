@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css1/style.css">
+    <link rel="stylesheet" href="./css1/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"></i>Councellor</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Name</h6>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                  <a class="nav-item nav-link" id="show-column" role="button"><i class="fa-solid fa-hand-point-right me-2"></i>Show Column</a>
+                  <div class="nav-item dropdown">
+                      <a href="#" class="nav-link" data-bs-toggle="dropdown" role="button"><i class="fa-solid fa-hand-point-right me-2"></i>Filter By</a>
+                      <div class="dropdown-menu bg-transparent border-0">
+                          <a href="#" class="dropdown-item clickable" style="width: 190px;">Course</a>
+                          <a href="#" class="dropdown-item clickable" style="width: 190px;">Assigned Salesman</a>
+                          <a href="#" class="dropdown-item clickable" style="width: 190px;">Location</a>
+                      </div>
+                  </div>
+              </div>
+            </nav>
+        </div>
+
+        <div class="content">
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark sticky-top ps-0 pe-2 py-0">
+                <div class="container-fluid">
+                    <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
+                              Leads
+                            </a>
+                            <div class="dropdown-content">
+                                <a class="dropdown-item" href="" id="TNewLeadsTab" role="button">New Leads</a>
+                                <a class="dropdown-item" href="" id="TFollowupTab" role="button">Follow-Up Leads</a>
+                                <a class="dropdown-item" href="#" id="TWalkinTab" role="button">Walkin Leads</a>
+                                <a class="dropdown-item" href="#" id="TWalkinTab" role="button">Closed</a>
+                            </div>
+                          </li>
+                          <div class="d-md-flex m-2 ms-4">
+                            <div id="maindiv">
+                              <div id="clickableDiv">
+                                  <button href="" onclick="send()" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                  <button href="" id="clearButton" 
+                                  style="padding: 2px;
+                                  color: white;
+                                  border-radius: 5px;
+                                  padding-left: 5px;
+                                  padding-right: 5px;"><i class="fa-solid fa-x"></i></button>
+                              </div>
+                              <div id="hiddenDiv">
+                                  <button id="close-btn">Close</button>
+                                  <section>
+                                      <div id="employee-div">
+                                          <h3>Employee</h3>
+                                          <button class="btn" data-searchfield="Employee Id">Employee Id</button><br>
+                                          <button  class="btn" data-searchfield="Name">Name</button><br>
+                                      </div>
+                                      <div id="leads-div">
+                                          <h3>Leads</h3>
+                                          <button  class="btn" data-searchfield="NewLeads">New Leads </button><br>
+                                          <button  class="btn" data-searchfield="FollowUp">Follow Up Leads</button><br>
+                                          <button  class="btn" data-searchfield="Walkin Leads">Walkin Leads</button><br>
+                                          <div class="dropdown">
+                                              <button class="dropbtn" data-searchfield="Prospects">Prospects</button>
+                                              <div class="dropdown-content">
+                                                   <button class="btn" data-searchfield="Expected Register Date">Expected Register Date</button>
+                                              </div>
+                                          </div><br>
+                                          <button  class="btn" data-searchfield="Closed">Closed</button>
+                                      </div>
+                                      <div id="time-div">
+                                          <h3>Time</h3>
+                                          <button  class="btn" data-searchfield="This_Month">This Month</button><br>
+                                          <button  class="btn" data-searchfield="Today">Today</button><br>
+                                          <div class="dropdown">
+                                              <button class="dropbtn" data-searchfield="Custom Date">Custom Date</button>
+                                              <div class="dropdown-content">
+                                                   <button class="btn" data-searchfield="From">From</button><br>
+                                                   <button class="btn" data-searchfield="To">To</button>
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </section>
+                              </div>
+                          </div>
+                        </div>
+
+
+                        
+                    </ul>
+                    <div class="navbar-nav align-items-center ms-auto">
+                        <div class="navbar-nav w-100">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropbtn"><i class="fa-solid fa-user me-2"></i></a>
+                                <div class="dropdown-content">
+                                    <a href="#">User Id</a>
+                                    <a href="#">Log Out</a>
+                                </div>
+                            </div>
+                            <div class="nav-item dropdown">
+                              <a class="nav-link dropbtn"><i class="fa-solid fa-circle-plus"></i></a>
+                              <div class="dropdown-content">
+                                  <a href="#">Client</a>
+                                  <a href="#">Customer</a>
+                                  <a href="#">Saved Activities</a>
+                              </div>
+                          </a>
+                      </div>
+                            <div class="navbar-nav w-100">
+                            <a href="#" class="nav-link"><i class="fa-solid fa-database me-2"></i></a>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+              </nav>
+            <!-- Navbar End -->
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">New Leads</h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col"></th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">CONTACT NUMBER</th>
+                                    <th scope="col">CITY</th>
+                                    <th scope="col">EMAIL</th>
+                                    <th scope="col">COURSE ENQUIRED</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" name="list-of-ids"></td>
+                                    <td>01 Jan 2045</td>
+                                    <td>INV-0123</td>
+                                    <td>Jhon Doe</td>
+                                    <td>$123</td>
+                                    <td>Paid</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td><a type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#FollowupModal">
+                                        Follow-Up
+                                    </a></td>
+                                      <div class="modal fade" id="FollowupModal" tabindex="-1" aria-labelledby="FollowupModalTitle" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h1 class="modal-title fs-5" id="FollowupModalTitle">Follow Up</h1>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <form method="post" action="/addfollowupbutton">
+                                                {% csrf_token %}
+                                                <div class="form-floating">
+                                                  <input type="text" id="purpose_of_calling" name="purpose_of_calling" class="form-control" placeholder="Purpose of calling" onclick="load_lead_id()" style="background: none;">
+                                                  <label for="purpose_of_calling">Purpose of Calling</label>
+                                                </div>				
+                                                <label for="followup_date" name="followup_date">FollowUp Date</label>
+                                                <input type="button" id="followup_date" name="followup_date" data-bs-toggle="modal" data-bs-target="#showCalendar" style="background: none; height: 16px;">						
+                                                <div class="form-floating">
+                                                  <textarea class="form-control" placeholder="Summary" id="summary" name="summary" style="height: 100px;background: none;"></textarea>
+                                                  <label for="summary">Summary</label>
+                                                </div>
+                                                <div class="form-floating">
+                                                  <input type="time" id="walkin_time" name="walkin_time" class="form-control" placeholder="Walk-in Time" style="background: none;">
+                                                  <label for="walkin_time" name="followup_date">Walk-in Time</label>
+                                                </div>
+                                                
+                                                <label for="star_rating">Priorirty</label>
+                                                <div class="star-rating">
+                                                  <span class="fa fa-star" data-rating="1"></span>
+                                                  <span class="fa fa-star" data-rating="2"></span>
+                                                  <span class="fa fa-star" data-rating="3"></span>
+                                                  <span class="fa fa-star" data-rating="4"></span>
+                                                  <span class="fa fa-star" data-rating="5"></span>
+                                                </div>
+                                               <input type="hidden" name="priority" id="priority" value="0">
+                                               <label for="need_supervisor_attention">Need Supervisor Attention</label>
+                                                <input type="checkbox" id="need_supervisor_attention" name="need_supervisor_attention" value="yes">
+                                                <input type="hidden" name="user_id" id="followupmodal_user_id" value={{user_id}}>				
+                                                <input type="hidden" name="model_name" id="followupmodal_model_name" value={{model_name}}>
+                                                <input type="text" name="lead_id" id="followupmodal_lead_id" value="">
+                                      
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="submit" class="btn btn-primary">Save changes</button>
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                              
+                                            </div>
+                                          </form>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                    <td><a class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#ClosedModal">Closed</a>
+                                      <div class="modal fade" id="ClosedModal" tabindex="-1" aria-labelledby="ClosedModalTitle" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h1 class="modal-title fs-5" id="ClosedModalTitle">Closure</h1>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <form method="post" action="closebutton">
+                                              <div class="form-floating">
+                                                <textarea class="form-control" placeholder="History" id="history" name="history" style="height: 100px;background: none;"></textarea>
+                                                <label for="summary">History</label>
+                                            </div>
+                                            <div class="form-floating">
+                                              <textarea class="form-control" placeholder="Reason for Closure" id="reason" name="reason" style="height: 100px;background: none;"></textarea>
+                                              <label for="summary">Reason for Closure</label>
+                                            </div>
+                                            <label>Opportunities in future</label>
+                                            <input type="radio" name="opportunities_in_future" id="opportunities_in_future_yes" value="yes">
+                                            <label for="opportunities_in_future_yes">Yes</label>
+                                            <input type="radio" name="opportunities_in_future" id="opportunities_in_future_no" value="no">
+                                            <label for="opportunities_in_future_no">No</label>
+                                          </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="./css1/js/main.js"></script>
+     <script src="./css1/js/searchload.js"></script>
+</body>
+</html>

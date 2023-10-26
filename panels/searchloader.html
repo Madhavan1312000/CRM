@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+	{{content_title}}
+	</title>
+</head>
+<body>
+<label>Search</label><div id="buttonContainer" width=10px height=2px ></div>
+
+	<div id="searchbuttons" >
+<!---ADD ALL THE BUTTON HERE WITH ID---->
+<button id="button1" data-searchfield="Employee" value="Employee">Employee</button>
+<button id="button2" data-searchfield="Stage" value="Stage">Stage</button>
+<button id="button3" data-searchfield="time" value="time">time</button>
+<button id="button4" data-searchfield="something" value="something">something</button>
+</div>
+<br>
+<br>
+<script>
+    const buttonContainer = document.getElementById('buttonContainer');
+    const searchButtons=document.getElementById('searchbuttons')
+    // const sbuttons=searchButtons.querySelectorAll('button')
+    const button1=document.getElementById("button1")
+
+function checkButtonCount() {
+  const buttons = buttonContainer.querySelectorAll("button");
+  if (buttons.length >= 3) {
+    button1.disabled = true;
+  } else {
+    button1.disabled = false;
+  }
+}
+checkButtonCount();
+
+button1.addEventListener("click", () => {
+  const buttonCount = buttonContainer.querySelectorAll("button").length;
+  if (buttonCount < 3) {
+    const newButton = document.createElement("button");
+    newButton.textContent = "Button " + (buttonCount + 1);
+    buttonContainer.appendChild(newButton);
+    checkButtonCount();
+  }
+});
+</script>
+</body>
+</html>

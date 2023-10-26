@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buttonContainer">
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
+
+        <a id="addButton" disabled>ADD</a>
+      </div>
+
+      <script>
+        // Get a reference to the container div and the buttons
+const buttonContainer = document.getElementById("buttonContainer");
+const addButton = document.getElementById("addButton");
+
+// Function to check the number of buttons in the container
+function checkButtonCount() {
+  const buttons = buttonContainer.querySelectorAll("button");
+  if (buttons.length >= 3) {
+    addButton.disabled = true; // Disable the "Add Button" button
+  } else {
+    addButton.disabled = false; // Enable the "Add Button" button
+  }
+}
+
+// Initial check
+checkButtonCount();
+
+// Event listener for adding buttons
+addButton.addEventListener("click", () => {
+  const buttonCount = buttonContainer.querySelectorAll("button").length;
+  if (buttonCount < 3) {
+    const newButton = document.createElement("button");
+    newButton.textContent = "Button " + (buttonCount + 1);
+    buttonContainer.appendChild(newButton);
+    checkButtonCount(); // Check the button count after adding a button
+  }
+});
+
+      </script>
+</body>
+</html>
